@@ -1,0 +1,280 @@
+
+kfhjwodzduodskmwsalwdjswsw
+a - 1
+b  0
+c  0
+d ---- 4
+e  0
+f - 1
+g  0
+h - 1
+i  0
+j -- 2
+k -- 2
+l - 1
+m - 1
+n  0
+o -- 2
+p  0
+q  0
+r  0
+s ---- 4
+t  0
+u - 1
+v  0
+w ----- 5
+x  0
+y  0
+z - 1
+
+lygwfsswdcaskmjjvlwjqwytaf
+a -- 2
+b  0
+c - 1
+d - 1
+e  0
+f -- 2
+g - 1
+h  0
+i  0
+j --- 3
+k - 1
+l -- 2
+m - 1
+n  0
+o  0
+p  0
+q - 1
+r  0
+s --- 3
+t - 1
+u  0
+v - 1
+w ---- 4
+x  0
+y -- 2
+z  0
+
+ksbkosbnbddxoqxcsmbclnooxn
+a  0
+b ---- 4
+c -- 2
+d -- 2
+e  0
+f  0
+g  0
+h  0
+i  0
+j  0
+k -- 2
+l - 1
+m - 1
+n --- 3
+o ---- 4
+p  0
+q - 1
+r  0
+s --- 3
+t  0
+u  0
+v  0
+w  0
+x --- 3
+y  0
+z  0
+
+brdugdweoyrpmqykxrcesbexc
+a  0
+b -- 2
+c -- 2
+d -- 2
+e --- 3
+f  0
+g - 1
+h  0
+i  0
+j  0
+k - 1
+l  0
+m - 1
+n  0
+o - 1
+p - 1
+q - 1
+r --- 3
+s - 1
+t  0
+u - 1
+v  0
+w - 1
+x -- 2
+y -- 2
+z  0
+
+nyicmcnfjgzioyozainmoihwn
+a - 1
+b  0
+c -- 2
+d  0
+e  0
+f - 1
+g - 1
+h - 1
+i ---- 4
+j - 1
+k  0
+l  0
+m -- 2
+n ---- 4
+o --- 3
+p  0
+q  0
+r  0
+s  0
+t  0
+u  0
+v  0
+w - 1
+x  0
+y -- 2
+z -- 2
+
+quzhmhyyiicllmlnuoicmjxbu
+a  0
+b - 1
+c -- 2
+d  0
+e  0
+f  0
+g  0
+h -- 2
+i --- 3
+j - 1
+k  0
+l --- 3
+m --- 3
+n - 1
+o - 1
+p  0
+q - 1
+r  0
+s  0
+t  0
+u --- 3
+v  0
+w  0
+x - 1
+y -- 2
+z - 1
+
+lczzerddccyptewpycyydxple
+a  0
+b  0
+c ---- 4
+d --- 3
+e --- 3
+f  0
+g  0
+h  0
+i  0
+j  0
+k  0
+l -- 2
+m  0
+n  0
+o  0
+p --- 3
+q  0
+r - 1
+s  0
+t - 1
+u  0
+v  0
+w - 1
+x - 1
+y ---- 4
+z -- 2
+
+cofytzetecliehpcowfrbpcet
+a  0
+b - 1
+c ---- 4
+d  0
+e ---- 4
+f -- 2
+g  0
+h - 1
+i - 1
+j  0
+k  0
+l - 1
+m  0
+n  0
+o -- 2
+p -- 2
+q  0
+r - 1
+s  0
+t --- 3
+u  0
+v  0
+w - 1
+x  0
+y - 1
+z - 1
+
+yccewydhmzwejpecdpxafdeez
+a - 1
+b  0
+c --- 3
+d --- 3
+e ----- 5
+f - 1
+g  0
+h - 1
+i  0
+j - 1
+k  0
+l  0
+m - 1
+n  0
+o  0
+p -- 2
+q  0
+r  0
+s  0
+t  0
+u  0
+v  0
+w -- 2
+x - 1
+y -- 2
+z -- 2
+
+tpmswlntlhactmephemzldscy
+a - 1
+b  0
+c -- 2
+d - 1
+e -- 2
+f  0
+g  0
+h -- 2
+i  0
+j  0
+k  0
+l --- 3
+m --- 3
+n - 1
+o  0
+p -- 2
+q  0
+r  0
+s -- 2
+t --- 3
+u  0
+v  0
+w - 1
+x  0
+y - 1
+z - 1
