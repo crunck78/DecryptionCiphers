@@ -15,8 +15,7 @@ int main()
 	string menuName = "Main Menu";
 	string decryptors[] = { "Exit", "Caesar Cipher", "Polyalphabetic Cipher", "Polybius-Square Cipher", "One-time pad Cipher" }; // names of available Decryptors
 	
-	Menu mainMenu( menuSize, menuName );
-	mainMenu.initialiseMenu( decryptors );
+	Menu mainMenu( menuSize, menuName, decryptors );
 	
 	Menu *p_current = NULL; // actuall menu in use
 	int index = 0;
