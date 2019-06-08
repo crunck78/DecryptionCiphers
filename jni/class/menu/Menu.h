@@ -8,7 +8,7 @@ using namespace std;
 class Menu
 {
 	public:
-		Menu( const int size, const string &name );
+		Menu( const int size, const string &name, const string names[] );
 		Menu();	
 		~Menu();
 		//Menu& operator=( const Menu& newMenu );
@@ -33,7 +33,7 @@ class Menu
 		static int getChoise();
 		static void setChoise( int choise );
 		
-		void initialiseMenu( string names[] );
+		void initialiseMenu( const string names[] );
 		
 	private:
 		

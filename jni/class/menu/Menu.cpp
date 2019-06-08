@@ -4,10 +4,11 @@ int Menu::_nextIndex = 0;
 int Menu::_choise = 0; 
 
 
-Menu::Menu( const int size, const string &name )
+Menu::Menu( const int size, const string &name, const string names[] )
 			: _size( size ), _name( name ), _index( _getNextIndex() )
 			{
 				setList();
+				initialiseMenu( names );
 			};
 			
 Menu::Menu()
@@ -117,7 +118,7 @@ void Menu::setChoise( int choise )
 	_choise = choise;
 }
 
-void Menu::initialiseMenu( string names[] )
+void Menu::initialiseMenu( const string names[] )
 {
 
 	for( int i = 0; i < _size; i++ )
