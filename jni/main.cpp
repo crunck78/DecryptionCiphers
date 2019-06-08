@@ -3,7 +3,7 @@
 #include "class/Menu/Menu.h"
 #include "class/Input/Input.h"
 
-#define MESSAGE_PATH "/storage/emulated/0/AppProjects/DecryptionCipher/jni/MESSAGES/Message1Clue2.txt"
+#define MESSAGE_PATH "/storage/emulated/0/AppProjects/DecryptionCiphers/jni/MESSAGES/Message1Clue2.txt"
 
 //const char alphabet[ ] = { 'a', 'b', 'c', 'd','e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 
