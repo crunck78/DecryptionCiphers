@@ -10,12 +10,13 @@
 int main()
 {
 	int options[] = { 0, 1, 2, 3, 4 };
+	int sizes[] = { 0, 0, 0, 0, 0 };
 	int menuSize = 5; // # of options inside Menu;
 	Input<int> choise( options, menuSize );
 	string menuName = "Main Menu";
 	string decryptors[] = { "Exit", "Caesar Cipher", "Polyalphabetic Cipher", "Polybius-Square Cipher", "One-time pad Cipher" }; // names of available Decryptors
 	
-	Menu mainMenu( menuSize, menuName, decryptors );
+	Menu mainMenu( menuSize, sizes, menuName, decryptors );
 	
 	Menu *p_current = NULL; // actuall menu in use
 	int index = 0;

@@ -4,11 +4,11 @@ int Menu::_nextIndex = 0;
 int Menu::_choise = 0; 
 
 
-Menu::Menu( const int size, const string &name, const string names[] )
+Menu::Menu( const int size, const int sizes[], const string &name, const string names[] )
 			: _size( size ), _name( name ), _index( _getNextIndex() )
 			{
 				setList();
-				initialiseMenu( names );
+				initialiseMenu( names, sizes );
 			};
 			
 Menu::Menu()
@@ -125,5 +125,6 @@ void Menu::initialiseMenu( const string names[] )
 	{
 		_p_options[ i ].setParent( *this );
 		_p_options[ i ].setName( names[ i ] );
+		_p_options[ i ].setSize( sizes[ i ] );
 	}
 }
