@@ -2,14 +2,14 @@
 #define MENU_H
 
 #include <iostream>
-#include "class/Input.h"
+#include "class/Input/Input.h"
 
 using namespace std;
 
 class Menu
 {
 	public:
-		Menu( const int size, const int sizes[], const string &name, const string names[] );
+		Menu( const int size, const string &name );
 		Menu();	
 		~Menu();
 		//Menu& operator=( const Menu& newMenu );
@@ -20,19 +20,19 @@ class Menu
 		void setSize( const int size );
 		int getSize();
 		
-		void displayList();
-		
-		void setList();
-		Menu* getOption( const int num );
-		
 		void setIndex( int index );
 		int getIndex();
 		
+		void setChoise( const int values[], const int size );
+		int getChoise();
+
+		void setOptions( const int size );
+		Menu* getOption( const int num );
+		
+		void displayList();
+		
 		void setParent( Menu &parent );
 		Menu* getParent();
-	
-		static int getChoise();
-		static void setChoise( int choise );
 		
 		void initialiseMenu( const string names[] );
 		
@@ -41,10 +41,11 @@ class Menu
 		static int _nextIndex;
 		static int _getNextIndex();
 	
-		bool _optionsNull; //guard to not reallocate @_p_options;
 		string _name;
-		int _index;
+		
 		int _size;
+		int _index;
+		
 		Input<int> *_p_choise;
 		
 		Menu *_p_options;
