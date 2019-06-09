@@ -3,22 +3,20 @@
 int Menu::_nextIndex = 0;
 int Menu::_choise = 0; 
 
-
-Menu::Menu( const int size, const int sizes[], const string &name, const string names[] )
-			: _size( size ), _name( name ), _index( _getNextIndex() )
-			{
-				setList();
-				initialiseMenu( names, sizes );
-			};
+Menu::Menu( const string &name, const int size )
+			: _name( name ), _size( size ), _index( _getNextIndex(), _p_options( new Menu[ size ] )
+			{};
 			
 Menu::Menu()
-			: _p_options( NULL ), _name( "" ), _size( 0 ), _index( _getNextIndex() )
+			:  _name( "" ), _size( 0 ), _index( _getNextIndex() ), _p_options( NULL )
 			{};
 			
 Menu::~Menu()
 		{
 			if( _p_options != NULL )
 				delete []_p_options;
+			if( _p_choise != NULL )
+				delete _p_choise;
 		}
 
 /*not finished
@@ -48,41 +46,6 @@ int Menu::getSize()
 	return _size;
 }
 
-/* possible error trow methode 
-* can allocate too much memory
-* need to set a limit
-* size should not be less then 0*/
-
-//need more work
-void Menu::setList()
-{
-	/* guard not too allocate to much memory
-	*	or against negative integer
-	*/
-	if( _size <= 0 || _size > 100 )
-		_p_options = NULL;
-	else
-		_p_options = new Menu[ _size ];
-}
-
-/* possible error trow method,
-* if instance has no size, nor options*/
-/* dumm ass, it will not run the loop if size equals 0
-*/
-void Menu::displayList()
-{
-	for( int i = 0; i < _size; i++ )
-	{
-		cout << i << ". " << _p_options[ i ]._name << endl;
-	}
-}
-
-
-Menu* Menu::getOption( const int num )
-{
-	return &_p_options[ num ];
-}
-
 void Menu::setIndex( int index )
 {
 	_index = index;
@@ -93,9 +56,31 @@ int Menu::getIndex()
 	return _index;
 }
 
-int Menu::_getNextIndex()
+void Menu::setChoise( const int values[], const int size )
 {
-	return _nextIndex++;
+	_p_choise = new Input<int>( values, size );
+}
+int Menu::getChoise()
+{
+	return _p_choise->getInput();
+}
+
+void Menu::setOptions( const int size )
+{
+	_p_options = new Menu[ size ];
+}
+
+Menu* Menu::getOption( const int num )
+{
+	return &_p_options[ num ];
+}
+
+void Menu::displayList()
+{
+	for( int i = 0; i < _size; i++ )
+	{
+		cout << i << ". " << _p_options[ i ]._name << endl;
+	}
 }
 
 void Menu::setParent( Menu &parent )
@@ -108,14 +93,9 @@ Menu* Menu::getParent()
 	return _p_parentMenu;
 }
 
-int Menu::getChoise()
+int Menu::_getNextIndex()
 {
-	return _choise;
-}
-
-void Menu::setChoise( int choise )
-{
-	_choise = choise;
+	return _nextIndex++;
 }
 
 void Menu::initialiseMenu( const string names[] )

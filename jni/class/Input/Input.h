@@ -25,7 +25,7 @@ template<typename T> class Input
 template <typename T> Input<T>::Input()
 	: _values( NULL ), _size( 0 ), _checkInput( false )
 	{}
-// not done, exception mith be trow becase size mith not coincide with values's size
+
 template <typename T> Input<T>::Input( T values[], int size )
 	: _values( values ), _size( size ), _checkInput( true )
 	{}
