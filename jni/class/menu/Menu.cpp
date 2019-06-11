@@ -1,10 +1,10 @@
 #include "Menu.h"
 
 int Menu::_nextIndex = 0;
-int Menu::_choise = 0; 
+//int Menu::_choise = 0; 
 
 Menu::Menu( const string &name, const int size )
-			: _name( name ), _size( size ), _index( _getNextIndex(), _p_options( new Menu[ size ] )
+			: _name( name ), _size( size ), _index( _getNextIndex() ), _p_options( new Menu[ size ] )
 			{};
 			
 Menu::Menu()
@@ -56,9 +56,9 @@ int Menu::getIndex()
 	return _index;
 }
 
-void Menu::setChoise( const int values[], const int size )
+void Menu::setChoise( const vector<int> &values )
 {
-	_p_choise = new Input<int>( values, size );
+	_p_choise = new Input<int>( values );
 }
 int Menu::getChoise()
 {
@@ -98,7 +98,7 @@ int Menu::_getNextIndex()
 	return _nextIndex++;
 }
 
-void Menu::initialiseMenu( const string names[] )
+void Menu::initialiseMenu( const string names[], const int sizes[] )
 {
 
 	for( int i = 0; i < _size; i++ )

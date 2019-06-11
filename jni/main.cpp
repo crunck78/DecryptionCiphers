@@ -8,7 +8,7 @@
 
 int main()
 {
-	//need to set and collect date for the hile Menu map
+	//need to set and collect date for the hole Menu tree
 	int options[] = { 0, 1, 2, 3, 4 };
 	int sizes[] = { 0, 0, 0, 0, 0 };
 	int menuSize = 5; // # of options inside Menu;

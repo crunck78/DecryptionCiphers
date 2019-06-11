@@ -2,13 +2,14 @@
 #define INPUT_H
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 template<typename T> class Input
 {
 	public:
-		Input( T values[], int size );
+		Input( const vector<T> &values );
 		Input();
 
 		T getInput();
@@ -16,18 +17,17 @@ template<typename T> class Input
 	private:
 		bool _checkInput;
 		T _input;
-		T *_values; 
-		int _size;
+		vector<T> _values; 
 		void _setInput();
 		bool _badInput();
 };
 
 template <typename T> Input<T>::Input()
-	: _values( NULL ), _size( 0 ), _checkInput( false )
+	: _checkInput( false )
 	{}
 
-template <typename T> Input<T>::Input( T values[], int size )
-	: _values( values ), _size( size ), _checkInput( true )
+template <typename T> Input<T>::Input( const vector<T> &values )
+	: _values( values ), _checkInput( true )
 	{}
 
 template <typename T> void Input<T>::_setInput()
@@ -56,7 +56,7 @@ template <typename T> T Input<T>::getInput()
 
 template <typename T> bool Input<T>::_badInput()
 {
-	for( int i = 0; i < _size; i++ )
+	for( int i = 0; i < _values.size(); i++ )
 	{
 		if( _input == _values[ i ] )
 			return false;//match found, return no bad input

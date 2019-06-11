@@ -9,7 +9,7 @@ using namespace std;
 class Menu
 {
 	public:
-		Menu( const int size, const string &name );
+		Menu( const string &name, const int size );
 		Menu();	
 		~Menu();
 		//Menu& operator=( const Menu& newMenu );
@@ -23,7 +23,7 @@ class Menu
 		void setIndex( int index );
 		int getIndex();
 		
-		void setChoise( const int values[], const int size );
+		void setChoise( const vector<int> &values );
 		int getChoise();
 
 		void setOptions( const int size );
@@ -34,7 +34,7 @@ class Menu
 		void setParent( Menu &parent );
 		Menu* getParent();
 		
-		void initialiseMenu( const string names[] );
+		void initialiseMenu( const string names[], const int sizes[] );
 		
 	private:
 		
