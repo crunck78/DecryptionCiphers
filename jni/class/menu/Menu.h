@@ -2,7 +2,6 @@
 #define MENU_H
 
 #include <iostream>
-#include "class/Input/Input.h"
 
 using namespace std;
 
@@ -23,9 +22,6 @@ class Menu
 		void setIndex( int index );
 		int getIndex();
 		
-		void setChoise( const vector<int> &values );
-		int getChoise();
-
 		void setOptions( const int size );
 		Menu* getOption( const int num );
 		
@@ -33,8 +29,6 @@ class Menu
 		
 		void setParent( Menu &parent );
 		Menu* getParent();
-		
-		void initialiseMenu( const string names[], const int sizes[] );
 		
 	private:
 		
@@ -45,8 +39,6 @@ class Menu
 		
 		int _size;
 		int _index;
-		
-		Input<int> *_p_choise;
 		
 		Menu *_p_options;
 		Menu *_p_parentMenu;

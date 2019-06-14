@@ -15,8 +15,6 @@ Menu::~Menu()
 		{
 			if( _p_options != NULL )
 				delete []_p_options;
-			if( _p_choise != NULL )
-				delete _p_choise;
 		}
 
 /*not finished
@@ -56,15 +54,6 @@ int Menu::getIndex()
 	return _index;
 }
 
-void Menu::setChoise( const vector<int> &values )
-{
-	_p_choise = new Input<int>( values );
-}
-int Menu::getChoise()
-{
-	return _p_choise->getInput();
-}
-
 void Menu::setOptions( const int size )
 {
 	_p_options = new Menu[ size ];
@@ -96,15 +85,4 @@ Menu* Menu::getParent()
 int Menu::_getNextIndex()
 {
 	return _nextIndex++;
-}
-
-void Menu::initialiseMenu( const string names[], const int sizes[] )
-{
-
-	for( int i = 0; i < _size; i++ )
-	{
-		_p_options[ i ].setParent( *this );
-		_p_options[ i ].setName( names[ i ] );
-		_p_options[ i ].setSize( sizes[ i ] );
-	}
 }

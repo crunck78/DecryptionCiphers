@@ -35,6 +35,7 @@ template <typename T> void Input<T>::_setInput()
 	cin >> _input;
 	while( cin.fail() )
 	{
+		cout << "Your input " << _input << " could not be extracted!/nPlease try againe: ";
 		cin.clear();
 		cin.ignore(32767, '\n' );
 		cin >> _input;
@@ -48,6 +49,8 @@ template <typename T> T Input<T>::getInput()
 	{
 		while( _badInput() )
 		{
+			cout << "Your input " << _input << " is not valid./nPlease chose one of the following values:/n";
+			displayValues();
 			_setInput();
 		}
 	}
@@ -62,5 +65,14 @@ template <typename T> bool Input<T>::_badInput()
 			return false;//match found, return no bad input
 	}
 	return true;//no match found, return bad input
+}
+
+template <typename T> void Input<T>::displayValues()
+{
+	for( int i = 0; i < _values.size(); i++ )
+	{
+		cout << _values[ i ] << ", ";
+	}
+	cout << endl;
 }
 #endif
