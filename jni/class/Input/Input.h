@@ -20,6 +20,7 @@ template<typename T> class Input
 		vector<T> _values; 
 		void _setInput();
 		bool _badInput();
+		void _displayValues();
 };
 
 template <typename T> Input<T>::Input()
@@ -50,7 +51,7 @@ template <typename T> T Input<T>::getInput()
 		while( _badInput() )
 		{
 			cout << "Your input " << _input << " is not valid./nPlease chose one of the following values:/n";
-			displayValues();
+			_displayValues();
 			_setInput();
 		}
 	}
@@ -67,7 +68,7 @@ template <typename T> bool Input<T>::_badInput()
 	return true;//no match found, return bad input
 }
 
-template <typename T> void Input<T>::displayValues()
+template <typename T> void Input<T>::_displayValues()
 {
 	for( int i = 0; i < _values.size(); i++ )
 	{

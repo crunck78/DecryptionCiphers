@@ -20,6 +20,8 @@ class Decryptor
 		void setDecryptedMessage( const char &letter );
 		string getDecryptedMessage();
 		
+		int getSize( const string& message );
+		
 		virtual void decrypteMessage( const string &message ) = 0;
 
 	private:

@@ -14,7 +14,7 @@ class CaesarCipher : public Decryptor
 			{
 				setFrequency( message );
 				decrypteMessage( message );
-			}
+			};
 			
 		CaesarCipher()
 			: _shift( 0 )

@@ -9,7 +9,7 @@ const char alphabet[ 6 ][ 6 ] = { 	{ '0', '0', '0', '0', '0', '0' },
 									{ '0', 'f', 'g', 'h', 'i', 'j' }, //2
 									{ '0', 'k', 'l', 'm', 'n', 'o' }, //3
 									{ '0', 'p', 'q', 'r', 's', 't' }, //4
-									{ '0', 'u', 'v', 'x', 'y', 'z' } };//5
+									{ '0', 'u', 'v', 'w', 'x', 'y' } };//5
 
 class PolybiusSquare: public Decryptor
 {

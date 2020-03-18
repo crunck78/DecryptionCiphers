@@ -1,5 +1,7 @@
 #include "Decryptor.h"
 
+Decryptor::~Decryptor(){}
+
 void Decryptor::setEncryptedMessage( const string &message )
 {
 	_encryptedMessage = message;
@@ -18,4 +20,9 @@ void Decryptor::setDecryptedMessage( const char &letter )
 string Decryptor::getDecryptedMessage()
 {
 	return _decryptedMessage;
+}
+
+int Decryptor::getSize( const string& message )
+{
+	return message.size();
 }
