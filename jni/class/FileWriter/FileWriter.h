@@ -4,23 +4,42 @@
 #include <iostream>
 #include <fstream>
 
-using namespace std;
-
 class FileWriter
 {
-	public:
-		FileWriter( const char path[] );
-		~FileWriter();
+private:
+	std::ofstream m_fileWriter;
+public:
+	FileWriter( const char path[] )
+	{
+		setFileWriter( path );
+	}
+	
+	~FileWriter()
+	{
+		m_fileWriter.close();
+	}
 		
-		void setFileWriter( const char path[] );
-		void closeFile();
+	void setFileWriter( const char path[] );
 		
-		template <typename T>
-		void setTextLine( T textLine );
-		
-		void insertEndLine();
-		
-	private:
-		ofstream _fileWriter;
+	template <typename T>
+	void FileWriter::setTextLine( T textLine )
+	{
+		m_fileWriter << textLine;
+	}
+	
+	void insertEndLine()
+	{
+		m_fileWriter << std::endl;
+	}
 };
+
+void FileWriter::setFileWriter( const char filePath[] )
+{
+	m_fileWriter.open( filePath, ios::app | ios::ate );
+	if( ! m_fileWriter.is_open() )
+	{
+		std::cout << "Could not open file at: " << filePath << std::endl;
+	}
+}
+
 #endif

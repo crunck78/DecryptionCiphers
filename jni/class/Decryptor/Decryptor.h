@@ -2,32 +2,46 @@
 #define DECRYPTOR_H
 
 #include <iostream>
-#include <fstream>
-#include <iterator>
-#include <map>
-
-using namespace std;
+#include <string>
 
 class Decryptor
 {
+	protected:
+		std::string m_encryptedMessage;
+		std::string m_decryptedMessage;
+		
 	public:
 	
-		virtual ~Decryptor();
+		virtual ~Decryptor()
+		{
+			
+		}
 	
-		void setEncryptedMessage( const string &message );
-		string getEncryptedMessage();
+		void setEncryptedMessage( const std::string& message )
+		{
+			std::m_encryptedMessage = message;
+		}
+		const std::string getEncryptedMessage() const
+		{
+			return m_encryptedMessage;
+		}
 		
-		void setDecryptedMessage( const char &letter );
-		string getDecryptedMessage();
+		void setDecryptedMessage( const char &letter )
+		{
+			m_decryptedMessage += letter;
+		}
 		
-		int getSize( const string& message );
+		const std::string getDecryptedMessage()
+		{
+			return m_decryptedMessage;
+		}
 		
-		virtual void decrypteMessage( const string &message ) = 0;
-
-	private:
-	
-		string _encryptedMessage;
-		string _decryptedMessage;
+		const int getSize( const std::string& message ) const
+		{
+			return message.size();
+		}
+		
+		virtual void decrypteMessage( const std::string &message ) = 0;
 		
 };
 #endif
