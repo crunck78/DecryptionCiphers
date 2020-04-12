@@ -11,9 +11,9 @@
 class CaesarCipher : public Decryptor
 {
 private:
-		
+	
 	unsigned int m_shift;
-	map<char, unsigned int> m_frequency;
+	std::map<char, unsigned int> m_frequency;
 		
 public:
 	const std::string decryptorType = "Caesar Cipher";
@@ -21,16 +21,35 @@ public:
 	{};
 	
 	CaesarCipher( const std::string& message, const unsigned int shift )
-		: m_encryptedMessage(message), m_shift( shift )
-		{
-			setFrequency();
-			decrypteMessage();
-		};
-			
-	void decrypteMessage();
-	void setFrequency();
+		: m_shift( shift )
+	{
+		m_encryptedMessage = message;
+		_setFrequency();
+	};
 		
-	const map<char, unsigned int> getFrequencyMap() const
+	CaesarCipher( const std::string& message)
+	{
+			m_encryptedMessage = message;
+			_setFrequency();
+	};
+	
+	void findMostFrequentLetter()
+	{
+		
+	}
+			
+	void decrypteMessage()
+	{
+		for( int i = 0; i < m_encryptedMessage.length(); i++ )
+		{
+			if( ( m_encryptedMessage[ i ] - m_shift ) < ALPHABET_BEGIN )
+				setDecryptedMessage( m_encryptedMessage[ i ] + ( ALPHABET_SIZE - m_shift ) );
+			else
+				setDecryptedMessage( m_encryptedMessage[ i ] - m_shift );
+		}
+	}
+	
+	const std::map<char, unsigned int> getFrequencyMap() const
 	{
 		return m_frequency;
 	}
@@ -40,77 +59,56 @@ public:
 		return m_shift;
 	}
 		
-	void frequencyToFile( const std::string& encryptedMessage );
+	void frequencyToFile()
+	{
+		FileWriter frequencyWriter( FREQUENCY_PATH );
+		frequencyWriter.setTextLine( "\n" + m_encryptedMessage + "\n" );
+		for( std::map<char, unsigned int>::iterator letterFrequency = m_frequency.begin(), end = m_frequency.end(); letterFrequency != end; ++letterFrequency )
+		{
+			frequencyWriter.setTextLine( letterFrequency->first );
+			frequencyWriter.setTextLine( m_letterFrequencyHeightBar( letterFrequency->second ) );
+			frequencyWriter.setTextLine( letterFrequency->second);
+			frequencyWriter.insertEndLine();
+		}
+	}
 		
-	void setShift( const char mostFrequentLetter );
+	void setShift( const char mostFrequentLetter )
+	{
+		if( mostFrequentLetter < MOST_FREQUENT_LETTER )
+			m_shift =  ALPHABET_SIZE + ( mostFrequentLetter - MOST_FREQUENT_LETTER );
+		else
+			m_shift =  mostFrequentLetter - MOST_FREQUENT_LETTER;
+	}
+	
 	void setShift( const unsigned int shift )
 	{
 		m_shift = shift;
 	}
 		
 private:
-	const std::string m_letterFrequencyHeightBar( const unsigned int hight ); const
-};
 
-void CaesarCipher::decrypteMessage()
-{
-	for( int i = 0; i < m_encryptedMessage.length(); i++ )
+	void _setFrequency()
 	{
-		if( ( m_encryptedMessage[ i ] - m_shift ) < ALPHABET_BEGIN )
-			setDecryptedMessage( m_encryptedMessage[ i ] + ( ALPHABET_SIZE - _shift ) );
-		else
-			setDecryptedMessage( m_encryptedMessage[ i ] - m_shift );
-	}
-}
-		
-void CaesarCipher::setFrequency()
-{
-	for( char letter = ALPHABET_BEGIN; letter <= ALPHABET_END; letter++ )
-	{
-		unsigned int counter = 0;
-		for( int i = 0; i < m_encryptedMessage.length(); i++ )
+		for( char letter = ALPHABET_BEGIN; letter <= ALPHABET_END; letter++ )
 		{
-			if( letter == encryptedMessage[ i ] )
-				counter++;
+			unsigned int counter = 0;
+			for( int i = 0; i < m_encryptedMessage.length(); i++ )
+			{
+				if( letter == m_encryptedMessage[ i ] )
+					counter++;
+			}
+			m_frequency[ letter ] = counter;
 		}
-		m_frequency[ letter ] = counter;
 	}
-}
 
-const void CaesarCipher::frequencyToFile() const
-{
-	FileWriter frequencyWriter( FREQUENCY_PATH );
-	frequencyWriter.setTextLine( "\n" + m_encryptedMessage + "\n" );
-	for( map<char, unsigned int>::iterator letterFrequency = m_frequency.begin(), end = m_frequency.end(); letterFrequency != end; ++letterFrequency )
+	const std::string m_letterFrequencyHeightBar( const unsigned int hight ) const
 	{
-		frequencyWriter.setTextLine( letterFrequency->first );
-		frequencyWriter.setTextLine( m_letterFrequencyHeightBar( letterFrequency->second ) );
-		frequencyWriter.setTextLine( letterFrequency->second + "\n" );
+		std::string hightBar = "";
+		for( int i = 0; i < hight; i++ )
+		{
+			hightBar += "-";
+		}
+		return hightBar.c_str();
 	}
-}
-
-void CaesarCipher::setShift( const char mostFrequentLetter )
-{	
-	if( mostFrequentLetter < MOST_FREQUENT_LETTER )
-		m_shift =  ALPHABET_SIZE + ( mostFrequentLetter - MOST_FREQUENT_LETTER );
-	else
-		m_shift =  mostFrequentLetter - MOST_FREQUENT_LETTER;
-}
-
-void CaesarCipher::setShift( const int shift )
-{
-	_shift = shift;
-}
-
-const std::string CaesarCipher::m_letterFrequencyHeightBar( const int hight ) const
-{
-	string hightBar = "";
-	for( int i = 0; i < hight; i++ )
-	{
-		hightBar += "-";
-	}
-	
-	return hightBar.c_str();
-}
-
+};
 #endif

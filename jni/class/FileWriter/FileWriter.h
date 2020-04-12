@@ -19,10 +19,17 @@ public:
 		m_fileWriter.close();
 	}
 		
-	void setFileWriter( const char path[] );
+	void setFileWriter( const char path[] )
+	{
+		m_fileWriter.open( path, std::ios::app | std::ios::ate );
+		if( ! m_fileWriter.is_open() )
+		{
+			std::cout << "Could not open file at: " << path << std::endl;
+		}
+	}
 		
 	template <typename T>
-	void FileWriter::setTextLine( T textLine )
+	void setTextLine( T textLine )
 	{
 		m_fileWriter << textLine;
 	}
@@ -32,14 +39,4 @@ public:
 		m_fileWriter << std::endl;
 	}
 };
-
-void FileWriter::setFileWriter( const char filePath[] )
-{
-	m_fileWriter.open( filePath, ios::app | ios::ate );
-	if( ! m_fileWriter.is_open() )
-	{
-		std::cout << "Could not open file at: " << filePath << std::endl;
-	}
-}
-
 #endif

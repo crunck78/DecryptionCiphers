@@ -3,44 +3,95 @@
 
 #include <iostream>
 
-using namespace std;
-
 class Menu
 {
-	public:
-		Menu( const string &name, const int size );
-		Menu();	
-		~Menu();
-		//Menu& operator=( const Menu& newMenu );
+private:
+		
+	static int _nextIndex;
+	static int _getNextIndex();
 	
-		void setName( const string &name );
-		string getName();
+	std::string _name;
 		
-		void setSize( const int size );
-		int getSize();
+	int _size;
+	int _index;
 		
-		void setIndex( int index );
-		int getIndex();
-		
-		void setOptions( const int size );
-		Menu* getOption( const int num );
-		
-		void displayList();
-		
-		void setParent( Menu &parent );
-		Menu* getParent();
-		
-	private:
-		
-		static int _nextIndex;
-		static int _getNextIndex();
+	Menu *_p_options;
+	Menu *_p_parentMenu;
+public:
+	Menu( const std::string &name, const int size )
+		: _name( name ), _size( size ), _index( _getNextIndex() ), _p_options( new Menu[ size ] )
+	{};
+	Menu()
+		:  _name( "" ), _size( 0 ), _index( _getNextIndex() ), _p_options( NULL )
+	{};
+	~Menu()
+	{
+		if( _p_options != NULL )
+			delete []_p_options;
+	}
+	//Menu& operator=( const Menu& newMenu );
 	
-		string _name;
+	void setName( const string &name )
+	{
+		_name = name;
+	}
 		
-		int _size;
-		int _index;
-		
-		Menu *_p_options;
-		Menu *_p_parentMenu;
+	const char* getName() const
+	{
+		return _name.c_str();
+	}
+
+		void Menu::setSize( const int size )
+{
+	_size = size;
+}
+
+int Menu::getSize()
+{
+	return _size;
+}
+
+void Menu::setIndex( int index )
+{
+	_index = index;
+}
+
+int Menu::getIndex()
+{
+	return _index;
+}
+
+void Menu::setOptions( const int size )
+{
+	_p_options = new Menu[ size ];
+}
+
+Menu* Menu::getOption( const int num )
+{
+	return &_p_options[ num ];
+}
+
+void Menu::displayList()
+{
+	for( int i = 0; i < _size; i++ )
+	{
+		cout << i << ". " << _p_options[ i ]._name << endl;
+	}
+}
+
+void Menu::setParent( Menu &parent )
+{
+	_p_parentMenu = &parent;
+}
+
+Menu* Menu::getParent()
+{
+	return _p_parentMenu;
+}
+
+int Menu::_getNextIndex()
+{
+	return _nextIndex++;
+}
 };
 #endif

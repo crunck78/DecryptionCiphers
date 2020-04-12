@@ -58,7 +58,7 @@ class PolyalphabeticCipher : public Decryptor
 			return m_decryptedSequances[ index ];
 		}
 		
-		void setShiftWord( const std::string& word )
+		void setShiftWord( const std::string &word )
 		{
 			m_shiftWord = word;
 		}

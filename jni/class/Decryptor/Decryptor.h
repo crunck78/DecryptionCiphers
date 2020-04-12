@@ -19,7 +19,7 @@ class Decryptor
 	
 		void setEncryptedMessage( const std::string& message )
 		{
-			std::m_encryptedMessage = message;
+			m_encryptedMessage = message;
 		}
 		const std::string getEncryptedMessage() const
 		{
@@ -41,7 +41,7 @@ class Decryptor
 			return message.size();
 		}
 		
-		virtual void decrypteMessage( const std::string &message ) = 0;
+		virtual void decrypteMessage() = 0;
 		
 };
 #endif
