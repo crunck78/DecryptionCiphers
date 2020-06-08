@@ -1,6 +1,6 @@
-#include "class/Cipher/Cipher.h"
+#include "class/CaesarCipher/CaesarCipher.h"
 
 int main()
 {
-	
+	CaesarCipher a;
 }
